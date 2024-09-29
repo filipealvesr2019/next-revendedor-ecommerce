@@ -1,0 +1,20 @@
+
+
+.skeletonContainer__A{
+display: none;
+}
+
+.skeletonContainer__B{
+    width: 80;
+}
+
+.skeleton{
+    width: 13vw;
+    height: 80vh;
+}
+
+@media (min-width: 700px){
+    .skeletonContainer__A{
+        display: block;
+        }
+}

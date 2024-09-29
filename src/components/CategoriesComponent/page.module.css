@@ -1,0 +1,400 @@
+/* Links */
+.myLinks {
+    margin-top: 1rem;
+    font-family: "poppins", sans-serif;
+  }
+  .Cores {
+    font-family: "poppins", sans-serif;
+    font-weight: 500;
+  }
+  .OutOfStock{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 15rem;
+    left: 35rem;
+    width: 80vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  .OutOfStockIMG{
+    width: 5vw;
+  }
+  .OutOfStockSpan{
+    font-size: .8rem;
+    width: 25vw;
+  }
+  .colorContainer__color {
+    font-family: "poppins", sans-serif;
+    font-weight: 500;
+  }
+  .myLinks a {
+    color: inherit;
+    text-decoration: none;
+    font-family: "poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  .colorContainer {
+    margin-bottom: 1rem;
+  }
+  /* Filter Modal */
+  .FilterModal {
+    display: block;
+    position: fixed;
+    z-index: 99999999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .FilterModalContent {
+    position: absolute;
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+  }
+  
+  .FiltercartClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .FilterClose:hover,
+  .FilterClose:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .FilterClose {
+    margin-top: 2rem;
+  }
+  
+  /* Products Container */
+  .ProductsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    list-style-type: none;
+  }
+  
+  .ProductsContainer__li {
+    position: relative;
+  }
+  
+  .ProductsContainer__image {
+    width: 15vw;
+    margin-top: -2rem;
+    margin-left: 1rem;
+    z-index: -1;
+  }
+  
+  
+  .filteredQuantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  /* Filtered Quantity */
+  .filteredQuantity__button {
+   
+  
+    width: 80vw;
+    background-color: #0C0C0C;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  /* Double Border */
+  .doubleBorder {
+    border: 2px solid red;
+  }
+  
+  .doubleBorder.selected {
+    border: 2px solid #007bff;
+  }
+  
+  /* Subcategories Data Container */
+  .subcategoriesDataContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: -4rem;
+    gap: 1rem;
+  }
+  
+  .subcategoriesDataContainer__productCard {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    cursor: pointer;
+  }
+  
+  .subcategoriesDataContainer__image {
+    width: 30vw;
+    margin-top: -2rem;
+    z-index: -1;
+  }
+  
+  .priceContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: -4rem;
+    gap: 1rem;
+  }
+  
+  .priceContainer__productcard {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  
+  .priceContainer__image {
+    width: 30vw;
+    margin-top: -2rem;
+    z-index: -1;
+  }
+  
+  /* Filter */
+  .Filter {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Desktop Container Products */
+  .DesktopContainerProducts {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  
+  .subcategoriesDataContainer__price {
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .subcategoriesDataContainer__productName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 15vw;
+    color: rgb(114, 114, 114);
+    font-size: 0.8rem;
+  }
+  
+  .priceContainer__price {
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .priceContainer__productName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 15vw;
+    color: rgb(114, 114, 114);
+    font-size: 0.8rem;
+  }
+  
+  .priceContainer__image {
+    width: 30vw;
+    margin-top: -2rem;
+    z-index: -1;
+  }
+  
+  .thinLine {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to bottom, rgb(189, 189, 189) 50%, transparent 50%);
+    position: absolute;
+    top: 100%;
+  }
+  
+  @media (max-width: 699px) {
+    .DesktopFilter,
+    .ProductsDesktopContainer,
+    .TabletContainerProducts {
+      display: none;
+    }
+  
+    .ProductsDesktopContainer {
+      color: #888;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-left: -5rem;
+    }
+  
+    .img {
+      width: 30vw;
+    }
+  
+    .DestopCustomPagination {
+      position: absolute;
+      bottom: -45rem;
+      margin-left: 3rem;
+    }
+  
+    .repeat {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .ProductsContainer__image {
+      width: 40vw;
+    }
+  }
+  
+  @media (min-width: 700px) {
+    .MobileFilter,
+    .ProductsMobileContainer,
+    .FilterContainer,
+    .TabletContainerProducts,
+    .DesktopContainerProducts {
+      display: none;
+    }
+  
+    .ProductsContainer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      list-style-type: none;
+    }
+  
+    .subcategoriesDataContainer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-left: 5rem;
+      gap: 2rem;
+    }
+  
+    .subcategoriesDataContainer__image {
+      width: 15vw;
+    }
+  
+    .subcategoriesDataContainer__productCard {
+      margin-top: 2rem;
+    }
+  
+    .priceContainer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-left: 5rem;
+      gap: 2rem;
+    }
+  
+    .priceContainer__image {
+      width: 15vw;
+      transition: opacity 0.5s ease-in-out;
+      
+    }
+  
+    .priceContainer__productcard {
+      margin-top: 2rem;
+    }
+    .priceContainer__productName{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 15vw;
+      color: rgb(114, 114, 114);
+      font-size: 0.8rem;
+      font-family: 'poppins', sans-serif;
+      font-weight: 400;
+    }
+  }
+  
+  @media (max-width: 800px) and (orientation: portrait) {
+    .DesktopFilter {
+      margin-top: 5rem;
+      margin-left: -3rem;
+    }
+  
+    .TabletContainerProducts {
+      display: block;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .DesktopContainerProducts,
+    .DestopCustomPagination {
+      display: none;
+    }
+  }
+  
+  @media only screen and (min-width: 608px) and (max-width: 799px) {
+    .ProductsContainer {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      list-style-type: none;
+    }
+    .ProductsContainer__image {
+      width: 28vw;
+    }
+    .subcategoriesDataContainer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .priceContainer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .priceContainer__image {
+      width: 25vw;
+    }
+  }
+  
+  @media only screen and (min-width: 800px) and (max-width: 926px) {
+    .ProductsContainer {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      list-style-type: none;
+    }
+    .ProductsContainer__image {
+      width: 28vw;
+    }
+    .subcategoriesDataContainer {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .subcategoriesDataContainer__image {
+      width: 22vw;
+    }
+    .priceContainer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .priceContainer__image {
+      width: 22vw;
+    }
+  }
+  
+  @media only screen and (min-width: 927px) and (max-width: 1180px) {
+    .ProductsContainer {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      list-style-type: none;
+    }
+    .ProductsContainer__image {
+      width: 22vw;
+    }
+    .priceContainer {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .priceContainer__image {
+      width: 22vw;
+    }
+  }
+  

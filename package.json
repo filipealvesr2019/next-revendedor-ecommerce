@@ -1,0 +1,31 @@
+{
+  "name": "next-ecommerce",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 5014",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.1",
+    "@mui/joy": "^5.0.0-beta.48",
+    "axios": "^1.7.7",
+    "js-cookie": "^3.0.5",
+    "next": "14.2.13",
+    "react-ga": "^3.3.1",
+    "react-swipeable": "^7.0.1",
+    "react-toastify": "^10.0.5"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "npm-force-resolutions": "^0.0.10"
+  }
+}

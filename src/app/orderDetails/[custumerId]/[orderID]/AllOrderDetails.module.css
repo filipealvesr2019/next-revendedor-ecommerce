@@ -1,0 +1,395 @@
+
+.boletoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+    font-size: 2rem;
+    font-family: Poppins, arial, sans-serif;
+    color: rgb(114, 114, 114);
+    margin-bottom: 5rem;
+}
+
+
+.boletoContainer__buttonContainer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    /* border: 3px double #333; Cor sólida e espessura de 3px com borda dupla */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombras para efeito de profundidade */
+
+    border-radius: 8px;
+    /* Bordas arredondadas */
+
+    width: 80vw;
+    height: auto;
+
+    margin-top: 2rem;
+
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+}
+
+.boletoContainer__button {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #05070A;
+    color: white;
+    padding: 1rem;
+    width: 30vw;
+    border: 0;
+    margin-top: 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.boletoContainer__span {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 2rem;
+    font-family: Poppins, arial, sans-serif;
+    color: rgb(114, 114, 114);
+}
+
+.boletoContainer__img {
+    width: 15vw;
+}
+
+.boletoContainer__texts {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.justifyContent{
+    display: flex;
+    flex-direction: column;
+
+
+    white-space: nowrap;
+    gap: .5rem;
+}
+
+
+
+
+.TotalAmountContainer{
+    border: 1px solid #ccc;
+    /* border: 3px double #333; Cor sólida e espessura de 3px com borda dupla */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80vw;
+    height: auto;
+    border-radius: 8px;
+    /* Bordas arredondadas */
+
+    padding: 1rem;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+
+
+
+
+
+
+}
+.value{
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: Poppins, arial, sans-serif;
+  }
+
+
+
+.boletoContainer__card{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    /* border: 3px double #333; Cor sólida e espessura de 3px com borda dupla */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80vw;
+    height: auto;
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+
+
+
+}
+.boletoContainer__size{
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+.boletoContainer__quantity{
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+.boletoContainer__text{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.price{
+    color: #05070A;
+}
+
+.span{
+    font-size: .9rem;
+}
+.text{
+    font-size: .9rem;
+
+}
+.pixCodeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pixCodeContainer___p{
+    font-family: "poppins", sans-serif;
+    font-size: .5rem;
+    text-align: center;
+
+
+}
+.pixCodeContainer___encodedImage{
+    width: 5vw;
+}
+
+.pixCodeContainer___button{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #05070A;
+    color: white;
+    padding: .8rem;
+    width: 30vw;
+    border: 0;
+    margin-top: 2rem;
+    border-radius: 8px;
+    font-size: .9rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    font-weight: 600;
+
+
+}
+
+
+
+.pending {
+    color: rgb(236, 162, 23); /* Cor para estado Pendente */
+  }
+
+  .received {
+    color: green; /* Cor para estado Pago */
+  }
+
+  .overdue {
+    color: rgb(236, 62, 62); /* Cor para estado Cobrança vencida */
+  }
+
+  .confirmed {
+    color: green; /* Cor para estado Pago */
+  }
+
+  .unknown {
+    color: gray; /* Cor para estado Desconhecido */
+  }
+
+  .pixCodeContainer{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    border: 1px solid #ccc;
+    /* border: 3px double #333; Cor sólida e espessura de 3px com borda dupla */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80vw;
+    height: auto;
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin-top: 2rem;
+
+    padding: 1rem;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+
+  }
+
+  .pixCodeContainer___Container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pixCodeContainer__span{
+    display: flex;
+    margin: 0 auto;
+    gap: .5rem;
+  }
+
+
+  @media only screen and (min-width: 600px) and (max-width: 1220px) and (orientation: landscape) {
+    .pixCodeContainer___p{
+min-width: fit-content;    }
+  }
+  
+@media screen and (min-width: 700px) {
+    .boletoContainer__buttonContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .boletoContainer__button {
+        width: 10vw;
+    }
+    .boletoContainer__card{
+        width: 40vw;
+
+
+    }
+    .TotalAmountContainer{
+        width: 40vw;
+    }
+
+  .span{
+     font-size: .9rem;
+  }
+    .text{
+        font-size: .9rem;
+    }
+
+
+    .status{
+        font-size: 1rem;
+
+    }
+    .boletoContainer__img{
+        width: 10vw;
+    }
+    .boletoContainer__buttonContainer{
+        width: 40vw;
+        display: flex;
+        justify-content: center;
+
+    }
+    .pixCodeContainer___p{
+        font-family: "poppins", sans-serif;
+        width: 25vw;
+        text-align: center;
+
+    }
+    .pixCodeContainer{
+        display: flex;
+        justify-content: space-between;
+        width: 40vw;
+    }
+    .pixCodeContainer___button{
+        width: 12vw;
+    }
+    .boletoContainer__text{
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+
+}
+
+
+@media screen and (min-width: 800px){
+    .boletoContainer__buttonContainer{
+        width: 60vw;
+        display: flex;
+        justify-content: center;
+
+
+    }
+    .boletoContainer__button{
+        width: 20vw;
+
+    }
+    .boletoContainer__card{
+        width: 60vw;
+
+    }
+    .TotalAmountContainer{
+        width: 60vw;
+    }
+    .pixCodeContainer{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1575px)  {
+    .boletoContainer__button {
+        width: 10vw;
+    }
+
+    .TotalAmountContainer {
+        width: 40vw;
+    }
+
+    .boletoContainer__card {
+        width: 40vw;
+    }
+
+    .boletoContainer__buttonContainer {
+        width: 40vw;
+    }
+}
+@media only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: portrait){
+.pixCodeContainer{
+    width: 60vw;
+    background-color: aqua;
+
+
+}
+.pixCodeContainer___p{
+   min-width: fit-content;
+   margin-right: 4rem;
+
+}
+.boletoContainer__card{
+    width: 60vw;
+
+}
+.TotalAmountContainer{
+    width: 60vw;
+}
+}
+
+@media only screen and (min-width: 1117px) and (max-width: 1728px) and (orientation: landscape) {
+    @media not screen and (min-width: 800px) and (max-width: 1575px) and (orientation: landscape) {
+        .boletoContainer {
+            width: 60vw;
+        }
+        .pixCodeContainer {
+            width: 60vw;
+            
+        }
+
+        .span{
+            font-size: 1rem;
+        }
+    }
+}

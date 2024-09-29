@@ -1,0 +1,8 @@
+
+
+@media screen and(280px <= width <= 600px) {
+    .carouselContainer{
+    border: 2px solid salmon;
+    display: flex;
+    }
+}

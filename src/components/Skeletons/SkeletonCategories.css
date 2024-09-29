@@ -1,0 +1,34 @@
+.skeleton {
+  width:12vw; /* Ajustado para 10% da largura da viewport */
+  height: 12vw; /* Ajustado para 10% da largura da viewport */
+  background-color: rgba(200, 200, 200, 0.2); /* Cinza mais forte */
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+  aspect-ratio: 1/1;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(200, 200, 200, 0.2); /* Cinza inicial */
+  }
+  50% {
+    background-color: rgba(150, 150, 150, 0.2); /* Cinza intermediário */
+  }
+  100% {
+    background-color: rgba(200, 200, 200, 0.2); /* Cinza final */
+  }
+}
+
+.skeletonContainer {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+}
+
+@media screen and ( 600px >= width ) {
+  .skeletonContainer{
+    display: none;
+  }
+
+
+}

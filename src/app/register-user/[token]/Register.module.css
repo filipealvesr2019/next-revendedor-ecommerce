@@ -1,0 +1,108 @@
+/* Centralizar o formulário */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Isso garante que o contêiner ocupe toda a altura da tela */
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  width: 80vw;
+  max-width: 400px; /* Limita a largura máxima para melhorar a aparência em telas maiores */
+  margin-bottom: 1rem; /* Espaçamento entre os inputs */
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid gray;
+  width: 80vw;
+}
+.label {
+  font-family: "poppins", sans-serif;
+  margin-left: 0.5rem;
+}
+.specs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha o texto à esquerda */
+  text-align: left;
+}
+
+.specs span {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Espaçamento entre os itens da lista */
+}
+
+.formContainer__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #05070a;
+  color: white;
+  padding: 1rem;
+  width: 90vw;
+  border: none;
+  margin: 2rem auto;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  max-width: 400px; /* Limita a largura máxima para melhorar a aparência em telas maiores */
+}
+
+.h2 {
+  font-family: "poppins", sans-serif;
+  font-size: 2.3rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+.VisibilityIcon {
+  position: absolute;
+  right: 1rem;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.span span {
+  font-family: "poppins", sans-serif;
+  font-size: 1.1rem;
+}
+
+@media screen and (min-width: 700px) {
+  .container {
+    height: 100vh;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .h2 {
+    margin-bottom: -0.5rem;
+  }
+  .span {
+    font-family: "poppins", sans-serif;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: portrait) {
+  .container {
+    height: 80vh;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    height: 100vh;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1559px) {
+  .container {
+    height: 100vh;
+    align-items: center;
+  }
+}

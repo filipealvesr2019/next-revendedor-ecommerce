@@ -1,0 +1,52 @@
+
+  
+  .OriginalImageContainer {
+    display: inline-block;
+    height: 100vh;
+    width: 30vw;
+    overflow: hidden;
+    object-fit: contain;
+ 
+    
+  }
+    
+  .OriginalImage {
+    height: 400px;
+    display: inline-block;
+  }
+    
+  .ZoomInWindow {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .ZoomInWindowInside {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    background: red;
+  }
+  
+  .ZoomInWindow-Image {
+    position: relative
+  }
+  
+  .application__spanStyle {
+    position: absolute;
+    background: white;
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
+  }
+  
+  .SwitchButton {
+    display: block;
+  }

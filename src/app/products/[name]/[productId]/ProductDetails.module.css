@@ -1,0 +1,435 @@
+.cartModal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.cartModalContent {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80vw;
+  height: 30vh;
+
+  margin-top: 10rem;
+
+  font-family: "poppins", sans-serif;
+}
+
+.cartClose {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.cartClose:hover,
+.cartClose:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cartModalContent__div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+.cartModalContent__p {
+  display: flex;
+}
+.cartModalContent__button {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: #05070a;
+  color: white;
+  padding: 1rem;
+  width: 80vw;
+  border: 0;
+  margin-top: 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 10rem;
+  text-decoration: none;
+}
+
+.secondCartModal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.secondCartModalContent {
+  background-color: #fefefe;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25vw;
+  height: 100%;
+  z-index: 999999999;
+  text-align: center; /* Alinha o conteúdo ao centro horizontalmente */
+}
+
+.secondCartCloseContainer {
+  width: 30px; /* Defina a largura do contêiner */
+  height: 30px; /* Defina a altura do contêiner */
+  border: 1px solid #aaa; /* Adiciona uma borda sólida com a cor #aaa */
+  border-radius: 50%; /* Define o raio da borda para torná-la circular */
+  position: relative; /* Define o posicionamento relativo para posicionar o filho absolutamente */
+  display: flex; /* Usa flexbox para alinhamento */
+  justify-content: center; /* Alinha o conteúdo à direita */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  margin-left: auto; /* Move o contêiner para a direita */
+  margin-top: 1rem;
+}
+
+.secondCartClose {
+  color: #aaa;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.1rem;
+}
+
+.IMGContent {
+  position: absolute;
+  top: 0;
+  left: -19rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(0, 0, 0, 60%);
+  font-family: "poppins", sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.secondCartClose:hover,
+.secondCartClose:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.CartB {
+  position: absolute;
+  margin-top: 1rem;
+  z-index: 7;
+}
+.add-to-cart-button {
+  background-color: #5070e3;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 5rem;
+  width: 80vw;
+  font-size: 1.3rem;
+}
+
+.open-modal-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 5rem;
+  width: 80vw;
+  font-size: 1.3rem;
+}
+
+.carroselMobile {
+  display: block;
+  margin-top: 65rem;
+}
+
+.colorContainer {
+  display: flex;
+  align-items: center;
+}
+
+.DesktopCarrosel {
+  display: none;
+}
+.buttonContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.span {
+  font-family: "poppins", sans-serif;
+  font-size: 1rem;
+
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+.spanContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1.5rem;
+}
+
+.descriptionContainer {
+  margin-left: 1rem;
+  margin-bottom: 5rem;
+}
+.h1 {
+  font-family: "poppins", sans-serif;
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  min-width: fit-content;
+}
+.description {
+  font-family: "poppins", sans-serif;
+  font-size: 1rem;
+  margin-top: 2rem;
+
+  min-width: fit-content;
+}
+.name {
+  font-family: "poppins", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.color {
+  font-family: "poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #999;
+}
+.strong {
+  font-family: "poppins", sans-serif;
+}
+
+.price {
+  font-family: "poppins", sans-serif;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 750px) {
+  .cartModalContent {
+    width: 80vw;
+    height: 40vh;
+  }
+}
+
+@media (max-width: 699px) {
+  .secondCartModal {
+    display: none;
+  }
+
+
+  .secondCartModalContent {
+    display: none;
+
+  }
+ 
+}
+
+@media (min-width: 700px) {
+  .buttonStyle {
+    width: 20vw;
+  }
+  .carroselMobile {
+    display: none;
+  }
+  .DesktopCarrosel {
+    display: block;
+  }
+  .buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .ProductDetailsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5rem;
+  }
+  .descriptionContainer {
+    width: 35vw;
+  }
+  .name {
+    width: 35vw;
+    font-size: 1.1rem;
+  }
+  .containerImage {
+    display: flex;
+
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+  .miniatureContainer {
+    display: flex;
+    align-items: center;
+  }
+  .containerImage__miniature {
+    display: flex;
+    flex-direction: column;
+  }
+  .cartModalContent {
+    width: 40vw;
+    height: 40vh;
+  }
+  .cartModalContent__button {
+    width: 30vw;
+  }
+  .buttonsContainer {
+    margin-top: -4rem;
+  }
+  .CartB{
+    z-index: 2;
+  }
+  
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1180px) {
+  .descriptionContainer {
+    width: 80vw;
+  }
+  .h1 {
+    font-size: 1.5rem;
+  }
+  .description {
+    font-size: 1.5rem;
+  }
+  .buttonsContainer {
+    margin-top: 2rem;
+  }
+  .name {
+    width: 80vw;
+    font-size: 1.1rem;
+    font-weight: 600;
+
+  }
+  .DesktopCarrosel {
+    display: none;
+  }
+  .carroselMobile {
+    display: block;
+  }
+
+  .ProductDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cartModalContent {
+    width: 50vw;
+    height: 25vh;
+  }
+  .cartModalContent__button {
+    width: 30vw;
+  }
+ 
+}
+
+@media (min-width: 1280px) {
+  .ProductDetailsContainer {
+    margin-top: 7rem;
+  }
+  .name{
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+@media (min-width: 1559px) {
+  .ProductDetailsContainer {
+    margin-top: 10rem;
+  }
+  .cartModalContent {
+    width: 40vw;
+    height: 25vh;
+  }
+  .cartModalContent__button {
+    width: 30vw;
+  }
+  .name{
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+@media (min-width: 1643px) {
+  .ProductDetailsContainer {
+    margin-top: 10rem;
+  }
+  .name{
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (min-width: 620px) and (max-width: 1120px) {
+  .cartModalContent {
+    width: 60vw;
+    height: 35vh;
+  }
+  .cartModalContent__button {
+    width: 30vw;
+  }
+  .name{
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (min-width: 630px) and (max-width: 1120px) and (orientation: landscape) {
+  .ProductDetailsContainer {
+ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .carroselMobile{
+    display: none;
+  }
+  .DesktopCarrosel{
+    display: block;
+  }
+  .buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 45vw;
+  }
+  .descriptionContainer{
+    width: 55vw;
+  }
+}

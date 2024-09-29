@@ -1,0 +1,30 @@
+
+
+
+@media (max-width: 699px) { 
+    .ImageGallery{
+        display: none;
+    }
+}
+
+@media (max-width: 800px) { 
+    .ImageGallery{
+        
+        display: none;
+    }
+}
+
+
+@media (min-width: 820px) and (max-width: 1180px) {
+    .ImageGallery{
+     
+        display: none;
+    }
+}
+
+@media (min-width: 603px) and (max-width: 1120px) and (orientation: landscape) {
+    .ImageGallery{
+     
+        display: block;
+    }
+}

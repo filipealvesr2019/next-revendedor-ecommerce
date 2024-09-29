@@ -1,0 +1,154 @@
+/* Slider.css */
+
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Garante que apenas uma imagem seja visível */
+  }
+  
+  .slider-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease-in-out; /* Adiciona uma transição suave entre as imagens */
+  }
+  
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .slider-button:focus {
+    outline: none;
+  }
+  
+  .categoriesImageStyle {
+  width: 100%;
+  height: auto;
+  margin-top: 6rem;
+  border-radius: 10px;
+  }
+  
+  
+  .indicator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .indicator {
+    width: 6px;
+    height: 6px;
+    background: gray;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+      border: none;
+      padding: 5px;
+      margin: -15px 5px;
+      border-radius: 50%;
+      z-index: 1;
+  }
+  
+  .indicator.active {
+    background: black;
+  }
+  
+  
+  
+    .arrowContainer{
+      display: none;
+    }
+  .arrowIconRight{
+    width: 40px;;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.6); /* Branco com 50% de opacidade */
+  
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, border-color 0.3s;
+    border: 0;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    right: 50px;
+    cursor: pointer;
+    color: black;
+    font-size: 24px;
+    display: flex;
+  }
+  
+  .arrowIconLeft{
+    width: 40px;;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.6); /* Branco com 50% de opacidade */
+  
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, border-color 0.3s;
+    border: 0;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    left: 50px;
+    cursor: pointer;
+    color: black;
+    font-size: 24px;
+  }
+  
+  
+  @media screen and (min-width: 700px)  {
+    .arrowContainer{
+      display: block;
+    }
+  
+    .categoriesImageStyle {
+      width: 100%;
+      height: 100%;
+      margin-top: 8rem;
+      border-radius: 10px;
+      }
+      .indicator {
+        width: 8px;
+        height: 8px;
+        background: gray;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 5px;
+      } 
+      .arrowIconLeft{
+        left: 5%;
+      }
+      .arrowIconRight{
+        right: 5%;
+      }
+  }
+  
+  @media only screen and (min-width: 975px)  and (max-width: 1559px){
+    .arrowIconLeft{
+      left: 5%;
+    }
+    .arrowIconRight{
+      right: 5%;
+    }
+  }
+  /* 
+  @media only screen and (min-width: 924px) and (max-width: 1643px){
+    .arrowIconLeft{
+      left: 200px;
+    }
+    .arrowIconRight{
+      right: 200px;
+    }
+  } */

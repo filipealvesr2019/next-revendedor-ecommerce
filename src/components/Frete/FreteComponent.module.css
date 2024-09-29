@@ -1,0 +1,78 @@
+.formContainer{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+.inputCep {
+  height: 4vh;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 0;
+  border:  1px solid gray;
+  font-size: 1rem;
+}
+
+.buttonCep {
+  background-color: #5070e3;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 700px){
+   
+    
+    .buttonCep{
+     width: 15vw;
+     padding: 0.5rem;
+
+    }
+}
+@media only screen and (min-width: 800px) and (max-width: 1180px) {
+  
+    .formContainer{
+        margin-top: 5rem;
+    }
+    .inputCep{
+        width: 35vw;
+        padding: 0.4rem;
+
+    }
+    .buttonCep{
+        width: 30vw;
+        padding: 1rem;
+        font-size: 1.4rem;
+   
+       }
+}
+@media screen and (min-width: 1559px){
+    .inputCep{
+        width: 15vw;
+        padding: 0.4rem;
+
+    }
+    .buttonCep{
+        width: 15vw;
+        padding: 0.8rem;
+   
+       }
+}
+
+@media screen and (min-width: 1643px){
+    .buttonCep{
+        width: 15vw;
+        padding: 0.7rem;
+   
+       }
+}

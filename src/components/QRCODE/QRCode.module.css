@@ -1,0 +1,9 @@
+.imageUrl{
+    width: 60vw;
+}
+
+@media screen and (min-width: 700px){
+    .imageUrl{
+        width: 20vw;
+    }
+}

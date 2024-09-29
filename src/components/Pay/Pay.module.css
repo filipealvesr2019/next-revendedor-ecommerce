@@ -1,0 +1,203 @@
+.child {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input {
+    padding: .5rem;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #CDCDCD;
+    width: 80vw;
+
+}
+
+
+.label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #05070A;
+    margin-top: 1rem;
+}
+
+/* Mobile-First Styles */
+
+.childContainer {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+}
+
+.select{
+    background-color: white;
+    color:#05070A ;
+    padding: .8rem;
+
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.ButtonDataCustomer {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #05070A;
+    color: white;
+    padding: 1rem;
+    width: 90vw;
+    border: 0;
+    margin-top: 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 10rem;
+    transition: background-color 0.3s ease; /* Adicionando uma transição suave */
+
+
+}
+
+.pixCodeContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.pixCodeContainer___p{
+    font-family: "poppins", sans-serif;
+    font-size: .654rem;
+    
+}
+
+
+.pixCodeContainer___button{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #05070A;
+    color: white;
+    padding: 1rem;
+    width: 30vw;
+    border: 0;
+    margin-top: 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    font-weight: 600;
+
+
+}
+
+.paymentDetails {
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 80vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  
+    padding: 1rem;
+  }
+
+  .justifyContent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+  
+.span {
+    margin: 0px;
+    font-size: 1rem;
+    font-family: Poppins, arial, sans-serif;
+    color: gray;
+    font-size: 0.9rem;
+    font-weight: 400;
+    
+  }
+  
+  .price {
+    font-family: Poppins, arial, sans-serif;
+    font-weight: 600;
+    color: black;
+    font-size: 1.4rem;
+  }
+  .total{
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+  }
+  .paymentContainer{
+
+        display: flex;
+        flex-direction: column;
+
+
+  }
+
+  .labelPIX{
+    font-family: Poppins, arial, sans-serif;
+    font-weight: 600;
+    color: black;
+    font-size: 1.4rem;
+  }
+  @media screen and (min-width: 700px) {
+    .paymentContainer{
+
+        display: flex;
+
+        flex-direction: row;
+        gap: 8rem;
+
+
+  }
+
+  .paymentDetails{
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+  }
+  .input{
+    width: 30vw;
+  }
+  .ButtonDataCustomer{
+    width: 33vw;
+    transition: background-color 0.3s ease; /* Adicionando uma transição suave */
+
+  }
+  .ButtonDataCustomer:hover{
+    background-color: #05070A;
+
+}
+.pixCodeContainer{
+    display: flex;
+    flex-direction: column;
+}
+.EXpixCodeContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pixCodeContainer___p{
+    width: 40vw;
+}
+
+.pixCodeContainer___button{
+    width: 25vw;
+}
+  }
+
+  @media screen and (min-width: 1643px) {
+    .paymentContainer{
+      margin-top: 2rem;
+    }
+  }

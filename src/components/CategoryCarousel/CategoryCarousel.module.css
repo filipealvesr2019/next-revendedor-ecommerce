@@ -1,0 +1,31 @@
+
+
+.categories{
+    display: none;
+}
+
+@media (max-width: 699px) {
+    .categories{
+        display: block;
+        margin-top: 20rem;
+    }
+    
+  }
+
+.hide-on-large{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+
+
+@media  only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: portrait) {
+    .categories{
+        display: block;
+        margin-top: 20rem;
+        margin-right: 10rem;
+      
+    }
+    
+  }

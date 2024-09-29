@@ -1,0 +1,119 @@
+/* Heart.module.css */
+.HeartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 25%;
+  }
+  
+  .HeartUL {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    gap: 20px; /* Espaço entre os cards */
+    width: 100%;
+    max-width: 800px; /* Tamanho máximo para os cards */
+    list-style: none; /* Remove os marcadores de lista */
+    padding: 0; /* Remove o padding padrão */
+  }
+  
+  .Heartfavorite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .HeartLink {
+    text-decoration: none; /* Remove a linha embaixo dos links */
+    color: inherit; /* Mantém a cor do texto */
+  }
+  
+  .HeartIMG {
+    width: 40vw; /* Imagem ocupa toda a largura do container */
+    max-width: 200px; /* Define um tamanho máximo para as imagens */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+  .Name{
+
+    white-space: nowrap;
+    color: rgb(114, 114, 114);
+    font-size: 0.8rem;
+  }
+  @media screen and (min-width: 700px) {
+    .HeartContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        margin-top: 8%;
+      }
+    .HeartUL {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Duas colunas */
+        gap: 3rem;
+        margin-bottom: 5%;
+    }
+
+    .HeartIMG {
+        width: 25vw;
+    }
+    .Name{
+
+        
+        color: rgb(114, 114, 114);
+        font-size: 0.8rem;
+      }
+  }
+
+
+  @media only screen and (min-width: 975px)  and (max-width: 1643px){
+    @media not screen and (min-width: 924px)  and (max-width: 1559px){
+    .HeartContainer {
+        
+        margin-top: 10%;
+       
+    }
+}
+  }
+  @media not screen and (min-width: 924px)  and (max-width: 1559px){
+    .HeartContainer {
+        
+        margin-top: 10%;
+   
+    }
+}
+
+@media only screen and (min-width: 630px)  and (max-width: 1120px){
+    .HeartContainer {
+        
+        margin-top: 8%;
+    }
+    .HeartUL {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Duas colunas */
+    }
+    .HeartIMG {
+        width: 15vw;
+    }
+} 
+
+@media only screen and (min-width: 800px)  and (max-width: 1180px){
+    .HeartContainer {
+        
+        margin-top: 18%;
+    }
+    .HeartUL {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Duas colunas */
+    }
+    .HeartIMG {
+        width: 20vw;
+    }
+  }
+  @media only screen and (min-width: 608px)  and (max-width: 926px){
+     .HeartContainer {
+        
+        margin-top: 18%;
+    }
+  }

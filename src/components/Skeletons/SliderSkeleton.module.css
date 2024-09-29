@@ -1,0 +1,16 @@
+.SliderSkeletonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+  
+  .SliderSkeletonContainer__Skeleton {
+    width: 90%;
+  }
+
+@media screen and (width >= 700px) {
+    .SliderSkeletonContainer{
+        margin-top: 1rem;
+    }
+}

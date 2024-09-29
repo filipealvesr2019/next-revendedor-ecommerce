@@ -1,0 +1,131 @@
+.ulContainer {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  flex-direction: column;
+}
+.ulContainer__name{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 25vw;
+  color: rgb(114, 114, 114);
+  font-size: 0.9rem;
+  font-family: 'poppins', sans-serif;
+  
+}
+.LinkContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+
+.IMGContainer {
+  width: 40vw;
+}
+
+.liContainer {
+  position: relative;
+}
+
+.IconToggleContainer {
+  position: absolute;
+  top: 5%;
+  right: 1.5rem;
+  z-index: 1;
+  margin-bottom: 5rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 608px) and (orientation: portrait) {
+  .ulContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .IMGContainer {
+    width: 25vw;
+  }
+}
+
+@media (min-width: 700px) {
+  .ulContainer {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .LinkContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+  }
+
+  .IMGContainer {
+    width: 15vw;
+    transition: opacity 0.5s ease-in-out ease-in; /* Transição suave para a opacidade */
+    opacity: 1;
+  }
+
+  .liContainer {
+    position: relative;
+  }
+
+  .IconToggleContainer {
+    position: absolute;
+    top: 80%;
+  }
+
+  .IconToggleContainer {
+    position: absolute;
+    top: 3%;
+    right: 4rem;
+    z-index: 5;
+    margin-bottom: 5rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ulContainer__name{
+    width: 12vw;
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 820px) and (orientation: portrait) {
+  .ulContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .IMGContainer {
+    width: 25vw;
+  }
+}
+@media (max-width: 1120px) and (min-width: 630px) {
+  .IconToggleContainer {
+    right: 3rem;
+  }
+}
+
+@media (min-width: 1559px) {
+  .IconToggleContainer {
+    right: 5rem;
+  }
+}
