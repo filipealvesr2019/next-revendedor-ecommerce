@@ -1,12 +1,10 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
+
 import axios from "axios";
 
-import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
-import Modal from "@mui/joy/Modal";
-import ModalDialog from "@mui/joy/ModalDialog";
-import Typography from "@mui/joy/Typography";
+
+
 
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -16,25 +14,21 @@ import Cookies from "js-cookie";
 import { CircularProgress } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CloseIcon from "@mui/icons-material/Close";
-import { logPageView } from "../../analytics";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import { useCart } from "../../../context/CartContext";
-import Link from "next/link";
 import { useConfig } from "../../../context/ConfigContext";
-import CircularIndeterminate from "@/components/CircularIndeterminate/CircularIndeterminate";
 import Navbar from "@/components/Navbar/Navbar";
-import Header from "@/components/Header/Header";
 import { useAuth } from "../../../context/AuthContext";
-import LoginForm from "@/components/Login/LoginForm";
+import CircularIndeterminate from "@/components/CircularIndeterminate/CircularIndeterminate";
+import { useCart } from "../../../context/CartContext";
+import Header from "@/components/Header/Header";
 const Cart = () => {
   const [getCart, setGetCart] = useState([]);
   const [handleDeleteProduct, setHandleDeleteProduct] = useState(false);
   const [open, setOpen] = React.useState(false);
   const { removeFromCart } = useCart(); // Use a função removeFromCart do contexto do carrinho
   const [getTotal, setGetTotal] = useState({});
-  
   const [selectedFreteIndex, setSelectedFreteIndex] = useState(
     typeof window !== "undefined" ? localStorage.getItem("selectedFreteIndex") : null
   );
@@ -49,19 +43,19 @@ const Cart = () => {
   const [shippingFee, setShippingFee] = useState(0);
   const { logout, loggedIn } = useAuth(); // Obtendo o userId do contexto de autenticação
   const [loading, setLoading] = useState(true); // Estado para controlar o carregamento
+  
   const [updatedQuantity, setUpdatedQuantity] = useState(1);
   const [exceedAvailability, setExceedAvailability] = useState(1);
   const [deleteProductId, setDeleteProductId] = useState(null);
   const [isLoading, setIsLoading] = useState(false); // Estado para o loading
   const [isLoadingValueCart, setIsLoadingValueCart] = useState(false); // Estado para o loading
 
+  
   const [openModal, setOpenModal] = useState(false);
   const modalRef = useRef(null);
   const [totalQuantity, setTotalQuantity] = useState([]);
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const { apiUrl } = useConfig();
- 
-  const [cepViaCep, setCepViaCep] = useState("");
 
   const [isRadioButtonEnabled, setIsRadioButtonEnabled] = useState(false);
   useEffect(() => {
@@ -160,12 +154,10 @@ const Cart = () => {
     [userId, removeFromCart]
   );
 
-
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("cep", cep);
-    }
+    localStorage.setItem("cep", cep);
   }, [cep]);
+
   useEffect(() => {
     const fetchFrete = async () => {
       try {
@@ -184,7 +176,7 @@ const Cart = () => {
   }, [cep, userId]);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && frete && frete.length > 0) {
+    if (frete && frete.length > 0) {
       setSelectedFreteIndex(
         +localStorage.getItem("selectedFreteIndex") || null
       );
@@ -283,53 +275,24 @@ const Cart = () => {
 
   const charLimit = 24;
 
-  const handleViaCepData = async () => {
-    try {
-      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-      setCepViaCep(response.data);
-      console.log("handleViaCepData", response.data);
-    } catch (error) {}
-  };
   useEffect(() => {
-    handleViaCepData(); // Atualiza cepViaCep
-
-    if (getTotal.totalAmount >= 300 || cepViaCep.localidade === "Fortaleza") {
-      setShippingFee(0); // Frete grátis
-    } else if (
-      selectedFreteIndex !== null &&
-      frete &&
-      frete[selectedFreteIndex]
-    ) {
+    if (getTotal.totalAmount >= 300) {
+      setShippingFee(0); // Configura o frete para grátis se o total for igual ou maior que 300
+    } else if (selectedFreteIndex !== null && frete && frete[selectedFreteIndex]) {
       setShippingFee(frete[selectedFreteIndex].valorFrete);
     }
-  }, [getTotal.totalAmount, selectedFreteIndex, frete, cep]); // Dependências do useEffect
-
-  function handleMessage() {
-    let message;
-    switch (true) {
-      case getTotal.totalAmount >= 300:
-        message = "Para compras acima de 300 reais, o frete é grátis";
-        break;
-      case cepViaCep.localidade === "Fortaleza":
-        message = "Para compras em Fortaleza o frete é grátis";
-        break;
-      default:
-        message = (
-          <span className={styles.green}>
-            Escolha uma opção de frete para prosseguir.
-          </span>
-        );
-        break;
-    }
-    return message; // Retorne a mensagem
-  }
-
+  }, [getTotal.totalAmount, selectedFreteIndex, frete]);
+  
   return (
-    <>
-    {!loggedIn ? <LoginForm></LoginForm>: 
-    
     <div className={styles.cartContainer}>
       <Header />
+      {/* <Helmet>
+        <title>Carrinho de Compras - Loja Mediewal</title>
+        <meta
+          name="description"
+          content="Veja as últimas novidades em nossa loja, com uma seleção de produtos novos."
+        />
+      </Helmet> */}
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -345,13 +308,6 @@ const Cart = () => {
       />
 
       <Navbar />
-      {/* <Helmet>
-        <title>Carrinho de Compras - Loja Mediewal</title>
-        <meta
-          name="description"
-          content="Veja as últimas novidades em nossa loja, com uma seleção de produtos novos."
-        />
-      </Helmet> */}
       {loading ? ( // Se estiver carregando, exibimos o CircularProgress
         <div className={styles.loading}>
           <CircularProgress />
@@ -388,8 +344,16 @@ const Cart = () => {
                       {getTotal.totalAmount && getTotal.totalAmount.toFixed(2)}
                     </span>
                   </div>
-
-                  <span className={styles.promo}>{handleMessage()}</span>
+                  <span className={styles.promo}>
+                    {" "}
+                    {getTotal.totalAmount >= 300 ? (
+                      "Para compras acima de 300 reais, o frete é grátis"
+                    ) : (
+                      <span className={styles.green}>
+                        Escolha uma opção de frete para prosseguir.
+                      </span>
+                    )}
+                  </span>
                 </div>
               </div>
             </>
@@ -409,50 +373,37 @@ const Cart = () => {
                   Por favor, selecione um frete antes de prosseguir.
                 </p>
               )}
-              <Link
-                href={
-                  getTotal.totalAmount >= 300 ||
-                  cepViaCep.localidade === "Fortaleza" ||
-                  (frete?.length > 0 && selectedFreteIndex !== null)
-                    ? `/payment/${totalQuantity}/${
-                        shippingFee.toFixed(2) === "0"
-                          ? "0"
-                          : shippingFee.toFixed(2)
-                      }/${getTotal.totalAmount.toFixed(2)}`
-                    : "#"
-                }
-                className={styles.LinkContainer}
-              >
-                <button
-                  onClick={handleAddShippingFee}
-                  style={{
-                    pointerEvents:
-                      getTotal.totalAmount >= 300 ||
-                      cepViaCep.localidade === "Fortaleza" ||
-                      (shippingFee &&
-                        frete?.length > 0 &&
-                        selectedFreteIndex !== null)
-                        ? "auto"
-                        : "none",
-                    opacity:
-                      isButtonEnabled || cepViaCep.localidade === "Fortaleza"
-                        ? 1
-                        : 0.5,
-                  }}
-                  disabled={
-                    !(
-                      getTotal.totalAmount >= 300 ||
-                      cepViaCep.localidade === "Fortaleza" ||
-                      (shippingFee &&
-                        frete?.length > 0 &&
-                        selectedFreteIndex !== null)
-                    )
-                  }
-                  className={styles.LinkContainer__button}
-                >
-                  Fazer Pedido
-                </button>
-              </Link>
+
+<Link
+      to={
+        (frete?.length > 0 && selectedFreteIndex !== null) || getTotal.totalAmount >= 300
+          ? `/payment/${totalQuantity}/${
+              shippingFee.toFixed(2) == 0 ? "0" : shippingFee.toFixed(2)
+            }/${getTotal.totalAmount.toFixed(2)}`
+          : "#"
+      }
+      className={styles.LinkContainer}
+    >
+      <button
+        onClick={handleAddShippingFee}
+        style={{
+          pointerEvents:
+            (shippingFee && frete?.length > 0 && selectedFreteIndex !== null) || getTotal.totalAmount >= 300
+              ? "auto"
+              : "none",
+          opacity:
+            (shippingFee && frete?.length > 0 && selectedFreteIndex !== null) || getTotal.totalAmount >= 300
+              ? 1
+              : 0.5,
+        }}
+        disabled={
+          shippingFee && frete?.length === 0 || (selectedFreteIndex === null && getTotal.totalAmount < 300)
+        }
+        className={styles.LinkContainer__button}
+      >
+        Fazer Pedido
+      </button>
+    </Link>
             </>
           )}
 
@@ -477,7 +428,7 @@ const Cart = () => {
                   {" "}
                   Somente os usuários registrados podem acessar esta página faça{" "}
                   <Link
-                    href={"/perfil"}
+                    to={"/perfil"}
                     style={{ color: "inherit", textDecoration: "none" }}
                   >
                     {" "}
@@ -497,124 +448,113 @@ const Cart = () => {
               </div>
             </>
           )}
-          {getTotal.totalAmount >= 300 ? (
-            ""
-          ) : (
-            <>
-              {" "}
-              {getCart.length > 0 && (
-                <div className={styles.shippingFeeContainer}>
-                  <form
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "1rem",
-                    }}
-                  >
-                    <input
-                      type="text"
-                      value={cep}
-                      onChange={(event) => setCep(event.target.value)}
-                      placeholder="Digite um cep..."
-                      className={styles.shippingFeeContainer__input}
-                    />
+          { getTotal.totalAmount >= 300 ? "" : <>         {getCart.length > 0 && (
+            <div className={styles.shippingFeeContainer}>
+              <form
+                style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+              >
+                <input
+                  type="text"
+                  value={cep}
+                  onChange={(event) => setCep(event.target.value)}
+                  placeholder="Digite um cep..."
+                  className={styles.shippingFeeContainer__input}
+                />
 
-                    <button
-                      type="submit"
-                      onClick={handleSubmit}
-                      className={styles.shippingFeeContainer__button}
-                    >
-                      {" "}
-                      <SearchIcon /> Buscar{" "}
-                    </button>
-                  </form>
-                  {isLoading ? (
-                    <div className={styles.CircularIndeterminate}>
-                      <CircularIndeterminate />
-                      <p>Carregando...</p>
-                    </div>
-                  ) : (
-                    <>
-                      {frete && (
-                        <div>
-                          {frete.map((item, index) => (
-                            <div key={index}>
-                              <div
-                                className={styles.freteContainer}
-                                onClick={() => handleRadioClick(index)}
-                              >
-                                <input
-                                  type="radio"
-                                  name="selectedFrete"
-                                  value={index}
-                                  onClick={() => handleRadioClick(index)}
-                                  checked={selectedFreteIndex === index}
-                                  style={{
-                                    pointerEvents: isRadioButtonEnabled
-                                      ? "auto"
-                                      : "none",
-                                    opacity: isRadioButtonEnabled ? 1 : 0.5,
-                                  }}
-                                  disabled={!isRadioButtonEnabled}
-                                  className={styles.radio}
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className={styles.shippingFeeContainer__button}
+                >
+                  {" "}
+                  <SearchIcon /> Buscar{" "}
+                </button>
+              </form>
+              {isLoading ? (
+                <div className={styles.CircularIndeterminate}>
+                  <CircularIndeterminate />
+                  <p>Carregando...</p>
+                </div>
+              ) : (
+                <>
+                  {frete && (
+                    <div>
+                      {frete.map((item, index) => (
+                        <div key={index}>
+                          <div
+                            className={styles.freteContainer}
+                            onClick={() => handleRadioClick(index)}
+                          >
+                            <input
+                              type="radio"
+                              name="selectedFrete"
+                              value={index}
+                              onClick={() => handleRadioClick(index)}
+                              checked={selectedFreteIndex === index}
+                              style={{
+                                pointerEvents: isRadioButtonEnabled
+                                  ? "auto"
+                                  : "none",
+                                opacity: isRadioButtonEnabled ? 1 : 0.5,
+                              }}
+                              disabled={!isRadioButtonEnabled}
+                              className={styles.radio}
+                            />
+
+                            <div
+                              className={styles.interContainer}
+                              onClick={() => handleRadioClick(index)}
+                            >
+                              <div className={styles.flex}>
+                                <img
+                                  src={item.logo}
+                                  alt="logo das transportadoras"
+                                  className={
+                                    item.nomeTransportadora === "Jadlog"
+                                      ? styles.Jadlog
+                                      : styles.image
+                                  }
                                 />
 
-                                <div
-                                  className={styles.interContainer}
-                                  onClick={() => handleRadioClick(index)}
-                                >
-                                  <div className={styles.flex}>
-                                    <img
-                                      src={item.logo}
-                                      alt="logo das transportadoras"
-                                      className={
-                                        item.nomeTransportadora === "Jadlog"
-                                          ? styles.Jadlog
-                                          : styles.image
-                                      }
-                                    />
+                                <p className={styles.span}>
+                                  {item.nomeTransportadora}
+                                </p>
+                              </div>
 
-                                    <p className={styles.span}>
-                                      {item.nomeTransportadora}
-                                    </p>
-                                  </div>
+                              <div className={styles.flex}>
+                                {" "}
+                                <p className={styles.span}>
+                                  {" "}
+                                  Entrega Prevista{" "}
+                                  {item.dataPrevistaEntrega &&
+                                    item.dataPrevistaEntrega
+                                      .split("T")[0]
+                                      .split("-")
+                                      .reverse()
+                                      .join("/")}
+                                  ({item.prazoEntrega} dias)
+                                </p>
+                              </div>
 
-                                  <div className={styles.flex}>
-                                    {" "}
-                                    <p className={styles.span}>
-                                      {" "}
-                                      Entrega Prevista{" "}
-                                      {item.dataPrevistaEntrega &&
-                                        item.dataPrevistaEntrega
-                                          .split("T")[0]
-                                          .split("-")
-                                          .reverse()
-                                          .join("/")}
-                                      ({item.prazoEntrega} dias)
-                                    </p>
-                                  </div>
-
-                                  <div className={styles.flex}>
-                                    <p className={styles.span}>
-                                      valor:{" "}
-                                      <b className={styles.priceValue}>
-                                        R$ {item.valorFrete}
-                                      </b>
-                                    </p>
-                                  </div>
-                                </div>
+                              <div className={styles.flex}>
+                                <p className={styles.span}>
+                                  valor:{" "}
+                                  <b className={styles.priceValue}>
+                                    R$ {item.valorFrete}
+                                  </b>
+                                </p>
                               </div>
                             </div>
-                          ))}
+                          </div>
                         </div>
-                      )}
-                    </>
+                      ))}
+                    </div>
                   )}
-                </div>
+                </>
               )}
-            </>
-          )}
-
+            </div>
+          )}</>}
+ 
           {getCart.length === 0 && loggedIn === true ? (
             <div
               style={{
@@ -625,7 +565,7 @@ const Cart = () => {
                 marginTop: "12rem",
               }}
             >
-              <img src="https://i.ibb.co/x765V9y/bag-4.png" alt="" />
+              <img src="https://i.ibb.co/x765V9y/bag-4.png" alt="carrinho vazio" />
               <p>O carrinho está vazio.</p>
             </div>
           ) : (
@@ -742,62 +682,71 @@ const Cart = () => {
                                             error
                                           );
                                         });
-                                      setIsLoadingValueCart(false); // Finaliza o loading
+                                        setIsLoadingValueCart(false); // Finaliza o loading
+
                                     })
                                     .catch((error) => {
                                       setIsLoadingValueCart(false); // Finaliza o loading
 
-                                      console.log(
-                                        "Erro ao atualizar quantidade do produto no carrinho.",
-                                        error
-                                      );
+                                      if(error.response && error.response.status === 400){
+                                        const minQuantityAvailable = error.response.data.minQuantityAvailable
+
+                                        toast.error(`Quantidade minima de compra são ${minQuantityAvailable} Peças`);
+
+                                      }else{
+                                        console.log(
+                                          "Erro ao atualizar quantidade do produto no carrinho.",
+                                          error
+                                        );
+                                        
+                                      }
                                     });
                                 }
                               }}
                               style={{ cursor: "pointer" }}
                             />
 
-                            {isLoadingValueCart ? (
-                              <CircularProgress size={24} /> // Exibe o loading enquanto o estado isLoading for true
-                            ) : (
-                              <span
-                                type="number"
-                                value={item.quantity}
-                                onChange={(e) => {
-                                  const newQuantity = parseInt(e.target.value);
-                                  if (newQuantity <= 0) {
-                                    // Se a quantidade for inválida, não faz nada
-                                    return;
-                                  }
+{isLoadingValueCart ? (
+    <CircularProgress size={24} /> // Exibe o loading enquanto o estado isLoading for true
+  ) : (
+    <span
+    type="number"
+    value={item.quantity}
+    onChange={(e) => {
+      const newQuantity = parseInt(e.target.value);
+      if (newQuantity <= 0) {
+        // Se a quantidade for inválida, não faz nada
+        return;
+      }
 
-                                  const availableQuantity =
-                                    getAvailableQuantity(item);
+      const availableQuantity =
+        getAvailableQuantity(item);
 
-                                  if (newQuantity > availableQuantity) {
-                                    alert(
-                                      "A quantidade desejada excede a quantidade disponível no estoque."
-                                    );
-                                    return;
-                                  }
+      if (newQuantity > availableQuantity) {
+        alert(
+          "A quantidade desejada excede a quantidade disponível no estoque."
+        );
+        return;
+      }
 
-                                  const newCart = [...getCart];
-                                  newCart[index].quantity = newQuantity;
-                                  setGetCart(newCart);
-                                  handleQuantityChange(
-                                    item.productId._id,
-                                    newQuantity
-                                  );
-                                }}
-                                className={styles.inputContainer}
-                              >
-                                {item.quantity}
-                              </span>
-                            )}
-
+      const newCart = [...getCart];
+      newCart[index].quantity = newQuantity;
+      setGetCart(newCart);
+      handleQuantityChange(
+        item.productId._id,
+        newQuantity
+      );
+    }}
+    className={styles.inputContainer}
+  >
+    {item.quantity}
+  </span>
+  )}
+                          
                             <AddIcon
                               onClick={() => {
                                 setIsLoadingValueCart(true); // Inicia o loading
-
+ 
                                 const newQuantity = item.quantity + 1;
                                 const availableQuantity =
                                   getAvailableQuantity(item);
@@ -941,20 +890,22 @@ const Cart = () => {
                 <span className={styles.Close} onClick={handleClickCloseModal}>
                   <CloseIcon />
                 </span>
-                <h1
-                  style={{ fontSize: "1.5rem" }}
-                  className={styles.ModalContent__p}
-                >
-                  Essa ação e irreversível você quer Excluir esse produto do
-                  carrinho?
+                <h1 style={{ fontSize: "1.5rem" }} className={styles.ModalContent__p}>
+                Essa ação e irreversível você quer Excluir esse produto do carrinho?
                 </h1>
-                <div className={styles.buttonContainer}>
+                <div
+               
+                  className={styles.buttonContainer}
+                  
+                >
                   <button
                     onClick={() => {
                       handleDelete(deleteProductId);
                       handleClickCloseModal();
                     }}
+                 
                     className={styles.confirmButton}
+
                   >
                     SIM
                   </button>
@@ -962,7 +913,9 @@ const Cart = () => {
                   <button
                     type="button"
                     onClick={handleClickCloseModal}
+                  
                     className={styles.cancel}
+
                   >
                     NÃO
                   </button>
@@ -973,10 +926,6 @@ const Cart = () => {
         </>
       )}
     </div>
-    
-    
-    }
-    </>
   );
 };
 

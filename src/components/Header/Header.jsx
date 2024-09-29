@@ -149,7 +149,7 @@ const Header = () => {
               <i>
                 <Link href={"/"}>
                   <img
-                    src="https://i.ibb.co/B3xYDzG/Logo-mediewal-1.png"
+                    src="https://i.imgur.com/RvCSV4Y.png"
                     alt="Logo da Mediewal"
                     className={styles.MediewalLogo}
                   />
@@ -309,14 +309,14 @@ const Header = () => {
                 <Link href={loggedIn === true ? " " : "/perfil"}>
                   {" "}
                   <img
-                    src="https://i.ibb.co/L1tX6LY/user-2.png"
+                    src="https://i.imgur.com/3Irnxtu.png"
                     alt="icone de perfil do usuario"
                     onClick={handleOpenModalAccount}
                   />
                 </Link>
 
                 <Link href={"/favoritos"}>
-                  <img src="https://i.ibb.co/2ZnFQfq/heart-1.png" alt="" />
+                  <img src="https://i.imgur.com/RkIa7ui.png" alt="icone dos favoritos" />
                 </Link>
                 
                 <Link
@@ -328,7 +328,7 @@ const Header = () => {
                   }}
                 >
                   <img
-                    src="https://i.ibb.co/FwNpdzD/shopping-bag-1.png"
+                    src="https://i.imgur.com/tFLwmfb.png"
                     alt="icone do carrinho de compras"
                   />
                   <span
@@ -382,7 +382,7 @@ const Header = () => {
               <i>
                 <Link href={"/"}>
                   <img
-                    src="https://i.ibb.co/B3xYDzG/Logo-mediewal-1.png"
+                    src="https://i.imgur.com/RvCSV4Y.png"
                     alt="Logo da Mediewal"
                     className={styles.MediewalLogoMobile}
                   />

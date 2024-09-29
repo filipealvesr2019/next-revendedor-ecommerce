@@ -44,7 +44,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  background-color: #05070a;
+  background-color: #FFDE00;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +99,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #05070a;
+    background-color: #FFDE00;
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;
@@ -241,7 +241,7 @@
       position: fixed;
       top: 0;
       width: 100vw;
-      background-color: #05070a;
+      background-color: #FFDE00;
       display: flex;
       justify-content: center;
       align-items: center;

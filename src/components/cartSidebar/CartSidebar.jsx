@@ -22,6 +22,7 @@ const CartSidebar = () => {
   const [stockStatus, setStockStatus] = useState({});
   const { apiUrl } = useConfig();
 
+
   useEffect(() => {
     axios
       .get(`${apiUrl}/api/cart/${userId}`, {
@@ -32,12 +33,13 @@ const CartSidebar = () => {
       .then((response) => {
         setGetCart(response.data.cart.products);
         setGetTotal(response.data.cart);
-        setTotalQuantity(response.data.cart.TotalQuantity);
+        setTotalQuantity(response.data.cart.TotalQuantity)
       })
       .catch((error) => {
         console.log("Erro ao visualizar frete.", error);
       });
   }, [userId, token]);
+
 
   const getAvailableQuantity = (item) => {
     const variation = item.productId.variations.find(
@@ -77,13 +79,6 @@ const CartSidebar = () => {
               marginTop: "15rem",
             }}
           >
-            {/* <Helmet>
-              <title>Carrinho de Compras - Loja Mediewal</title>
-              <meta
-                name="description"
-                content="Veja as últimas novidades em nossa loja, com uma seleção de produtos novos."
-              />
-            </Helmet> */}
             <div
               style={{
                 marginTop: "5rem",
@@ -95,7 +90,7 @@ const CartSidebar = () => {
               {" "}
               Somente os usuários registrados podem acessar esta página faça{" "}
               <Link
-                href={"/perfil"}
+                to={"/perfil"}
                 style={{ color: "inherit", textDecoration: "none" }}
               >
                 {" "}
@@ -128,7 +123,7 @@ const CartSidebar = () => {
         >
           <img
             src="https://i.ibb.co/x765V9y/bag-4.png"
-            alt="icone do carrinho"
+            alt="carrinho vazio"
             style={{ width: "15vw" }}
           />
           <p>O carrinho está vazio.</p>
@@ -151,9 +146,9 @@ const CartSidebar = () => {
                 <div className={styles.quantity}>
                   {" "}
                   {item.productId.variations &&
-                  item.productId.variations.some((variation) =>
-                    variation.sizes.some((size) => size.quantityAvailable > 0)
-                  ) ? (
+                    item.productId.variations.some((variation) =>
+                      variation.sizes.some((size) => size.quantityAvailable > 0)
+                    ) ? (
                     <p>{`Apenas ${getAvailableQuantity(
                       item
                     )} unidades em estoque`}</p>
@@ -201,72 +196,82 @@ const CartSidebar = () => {
                             size.size === item.size && (
                               <div key={size.size}>
                                 <span className={styles.spanPrice}>
-                                  R${size.price && size.price.toFixed(2)}
+                                  Preço: R${size.price && size.price.toFixed(2)}
                                 </span>
                               </div>
                             )
                         )}
                     <div className={styles.quantityContainer}>
-                      <RemoveIcon
-                        onClick={() => {
-                          const newQuantity = item.quantity - 1; // Defina newQuantity antes de usá-la
-                          if (newQuantity >= 0) {
-                            const newCart = [...getCart];
-                            newCart[index].quantity = newQuantity;
-                            const productId = item.productId._id;
-                            const color = item.color;
-                            const size = item.size;
-                            const token = Cookies.get("token");
-
-                            axios
-                              .put(
-                                `${apiUrl}/api/update-quantity/${userId}/${productId}/${color}/${size}`,
-                                { quantity: newQuantity },
-                                {
-                                  headers: {
-                                    Authorization: `Bearer ${token}`,
-                                  },
-                                }
-                              )
-                              .then((response) => {
-                                setGetCart((prevCart) => {
-                                  const newCart = [...prevCart];
+                    <RemoveIcon
+                              onClick={() => {
+                                const newQuantity = item.quantity - 1; // Defina newQuantity antes de usá-la
+                                if (newQuantity >= 0) {
+                                  const newCart = [...getCart];
                                   newCart[index].quantity = newQuantity;
-                                  return newCart;
-                                });
-                                axios
-                                  .get(`${apiUrl}/api/cart/${userId}`, {
-                                    headers: {
-                                      Authorization: `Bearer ${token}`,
-                                    },
-                                  })
-                                  .then((response) => {
-                                    setGetCart(response.data.cart.products); // Define os produtos do carrinho
-                                    setGetTotal(response.data.cart); // Define o total do carrinho
-                                    setTotalQuantity(
-                                      response.data.cart.TotalQuantity
-                                    );
-                                    setLoading(false); // Define o estado de carregamento como falso
-                                  })
-                                  .catch((error) => {
-                                    setLoading(false); // Define o estado de carregamento como falso
+                                  const productId = item.productId._id;
+                                  const color = item.color;
+                                  const size = item.size;
+                                  const token = Cookies.get("token");
 
-                                    console.log(
-                                      "Erro ao visualizar frete.",
-                                      error
-                                    );
-                                  });
-                              })
-                              .catch((error) => {
-                                console.log(
-                                  "Erro ao atualizar quantidade do produto no carrinho.",
-                                  error
-                                );
-                              });
-                          }
-                        }}
-                        style={{ cursor: "pointer" }}
-                      />
+                                  axios
+                                    .put(
+                                      `${apiUrl}/api/update-quantity/${userId}/${productId}/${color}/${size}`,
+                                      { quantity: newQuantity },
+                                      {
+                                        headers: {
+                                          Authorization: `Bearer ${token}`,
+                                        },
+                                      }
+                                    )
+                                    .then((response) => {
+                                      setGetCart((prevCart) => {
+                                        const newCart = [...prevCart];
+                                        newCart[index].quantity = newQuantity;
+                                        return newCart;
+                                      });
+                                      axios
+                                        .get(`${apiUrl}/api/cart/${userId}`, {
+                                          headers: {
+                                            Authorization: `Bearer ${token}`,
+                                          },
+                                        })
+                                        .then((response) => {
+                                          setGetCart(
+                                            response.data.cart.products
+                                          ); // Define os produtos do carrinho
+                                          setGetTotal(response.data.cart); // Define o total do carrinho
+                                          setTotalQuantity(
+                                            response.data.cart.TotalQuantity
+                                          );
+                                          setLoading(false); // Define o estado de carregamento como falso
+                                        })
+                                        .catch((error) => {
+                                          setLoading(false); // Define o estado de carregamento como falso
+
+                                          console.log(
+                                            "Erro ao visualizar frete.",
+                                            error
+                                          );
+                                        });
+                                    })
+                                    .catch((error) => {
+                                      if(error.response && error.response.status === 400){
+                                        const minQuantityAvailable = error.response.data.minQuantityAvailable
+
+                                        toast.error(`Quantidade minima de compra são ${minQuantityAvailable} Peças`);
+
+                                      }else{
+                                        console.log(
+                                          "Erro ao atualizar quantidade do produto no carrinho.",
+                                          error
+                                        );
+                                        
+                                      }
+                                    });
+                                }
+                              }}
+                              style={{ cursor: "pointer" }}
+                            />
                       <span
                         type="number"
                         value={item.quantity}
@@ -284,106 +289,103 @@ const CartSidebar = () => {
                         {item.quantity}
                       </span>
                       <AddIcon
-                        onClick={() => {
-                          const newQuantity = item.quantity + 1;
-                          const availableQuantity = getAvailableQuantity(item);
+                              onClick={() => {
+                                const newQuantity = item.quantity + 1;
+                                const availableQuantity =
+                                  getAvailableQuantity(item);
 
-                          if (newQuantity > availableQuantity) {
-                            toast.success(
-                              "A quantidade desejada excede a quantidade disponível no estoque."
-                            );
-                            return;
-                          }
-
-                          const productId = item.productId._id;
-                          const color = item.color;
-                          const size = item.size;
-
-                          const token = Cookies.get("token");
-
-                          axios
-                            .put(
-                              `${apiUrl}/api/update-quantity/${userId}/${productId}/${color}/${size}`,
-                              { quantity: newQuantity },
-                              {
-                                headers: {
-                                  Authorization: `Bearer ${token}`,
-                                },
-                              }
-                            )
-                            .then((response) => {
-                              const products = response.data.cart.products;
-
-                              setGetCart((prevCart) => {
-                                const newCart = [...prevCart];
-                                const productIndex = newCart.findIndex(
-                                  (product) =>
-                                    product.productId._id === productId &&
-                                    product.color === color &&
-                                    product.size === size
-                                );
-                                if (productIndex !== -1) {
-                                  newCart[productIndex].quantity = newQuantity;
+                                if (newQuantity > availableQuantity) {
+                                  toast.success(
+                                    "A quantidade desejada excede a quantidade disponível no estoque."
+                                  );
+                                  return;
                                 }
-                                return newCart;
-                              });
 
-                              axios
-                                .get(`${apiUrl}/api/cart/${userId}`, {
-                                  headers: {
-                                    Authorization: `Bearer ${token}`,
-                                  },
-                                })
-                                .then((response) => {
-                                  setGetCart(response.data.cart.products);
-                                  setGetTotal(response.data.cart);
-                                  setTotalQuantity(
-                                    response.data.cart.TotalQuantity
-                                  );
-                                  setLoading(false);
-                                })
-                                .catch((error) => {
-                                  setLoading(false);
-                                  console.log(
-                                    "Erro ao visualizar frete.",
-                                    error
-                                  );
-                                });
-                            })
-                            .catch((error) => {
-                              console.log(
-                                "Erro ao atualizar quantidade do produto no carrinho.",
-                                error
-                              );
-                            });
-                          setUpdatedQuantity(newQuantity);
-                          console.log("quantidade", newQuantity);
-                        }}
-                        style={{
-                          cursor: "pointer",
-                          color:
-                            item.quantity === getAvailableQuantity(item)
-                              ? "rgb(189, 189, 189)"
-                              : "rgb(33, 33, 33)",
-                        }}
-                      />
+                                const productId = item.productId._id;
+                                const color = item.color;
+                                const size = item.size;
+
+                                const token = Cookies.get("token");
+
+                                axios
+                                  .put(
+                                    `${apiUrl}/api/update-quantity/${userId}/${productId}/${color}/${size}`,
+                                    { quantity: newQuantity },
+                                    {
+                                      headers: {
+                                        Authorization: `Bearer ${token}`,
+                                      },
+                                    }
+                                  )
+                                  .then((response) => {
+                                    const products =
+                                      response.data.cart.products;
+
+                                    setGetCart((prevCart) => {
+                                      const newCart = [...prevCart];
+                                      const productIndex = newCart.findIndex(
+                                        (product) =>
+                                          product.productId._id === productId &&
+                                          product.color === color &&
+                                          product.size === size
+                                      );
+                                      if (productIndex !== -1) {
+                                        newCart[productIndex].quantity =
+                                          newQuantity;
+                                      }
+                                      return newCart;
+                                    });
+
+                                    axios
+                                      .get(`${apiUrl}/api/cart/${userId}`, {
+                                        headers: {
+                                          Authorization: `Bearer ${token}`,
+                                        },
+                                      })
+                                      .then((response) => {
+                                        setGetCart(response.data.cart.products);
+                                        setGetTotal(response.data.cart);
+                                        setTotalQuantity(
+                                          response.data.cart.TotalQuantity
+                                        );
+                                        setLoading(false);
+                                      })
+                                      .catch((error) => {
+                                        setLoading(false);
+                                        console.log(
+                                          "Erro ao visualizar frete.",
+                                          error
+                                        );
+                                      });
+                                  })
+                                  .catch((error) => {
+                                    console.log(
+                                      "Erro ao atualizar quantidade do produto no carrinho.",
+                                      error
+                                    );
+                                  });
+                                setUpdatedQuantity(newQuantity);
+                                console.log("quantidade", newQuantity);
+                              }}
+                              style={{
+                                cursor: "pointer",
+                                color:
+                                  item.quantity === getAvailableQuantity(item)
+                                    ? "rgb(189, 189, 189)"
+                                    : "rgb(33, 33, 33)",
+                              }}
+                            />
                     </div>
                     <div>
+
                       <div className={styles.texts}>
-                        <span
-                          className={styles.spanName}
-                          style={{
-                            color:
-                              item.quantity === getAvailableQuantity(item)
-                                ? "#E71E1E"
-                                : "#21BF45",
-                          }}
-                        >
+                        <span className={styles.spanName} style={{ color: item.quantity === getAvailableQuantity(item) ? '#E71E1E' : '#21BF45' }}>
                           {item.quantity === getAvailableQuantity(item)
                             ? "Produto fora de estoque"
                             : "Produto em estoque"}
                         </span>
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -399,7 +401,8 @@ const CartSidebar = () => {
             <div className={styles.totalAmountAndQuantityContainer}>
               <div className={styles.TotalQuantity}>
                 <span>
-                  total de <b style={{ color: "#212121" }}>{totalQuantity}</b>{" "}
+                  total de{" "}
+                  <b style={{ color: "#212121" }}>{totalQuantity}</b>{" "}
                   produto(s) na sacola{" "}
                 </span>
                 <span className={styles.TotalQuantity}></span>
@@ -418,7 +421,7 @@ const CartSidebar = () => {
 
       {getCart.length > 0 && (
         <div className={styles.buttonCart}>
-          <Link href={"/cart"}>
+          <Link to={"/cart"}>
             <button
               style={{
                 backgroundColor: "#E94D36",
@@ -444,5 +447,6 @@ const CartSidebar = () => {
     </div>
   );
 };
+
 
 export default CartSidebar;

@@ -6,7 +6,10 @@
   margin-top: 5rem;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra para a linha */
 }
-
+/* 
+div h3:nth-last-of-type(3) {
+  margin-left: auto;
+} */
 
 .ExternalContainer {
   margin-top: 3rem;
@@ -103,7 +106,6 @@ margin-bottom: 2rem;
 .textsContainer {
   display: flex;
   flex-direction: column;
-  
 }
 
 .loading {
@@ -119,6 +121,11 @@ margin-bottom: 2rem;
   font-weight: 600;
 }
 
+/* input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
 
 .Modal {
   display: block;
@@ -130,7 +137,6 @@ margin-bottom: 2rem;
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-
 }
 
 .ModalContent {
@@ -141,20 +147,15 @@ margin-bottom: 2rem;
   width: 80vw;
   height: 40vh;
   border-radius: 10px;
-  
-}
-.ModalContent__p{
-  font-family: 'poppins', sans-serif;
-  font-weight: 500;
-}
 
-
+}
 .buttonContainer{
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   margin-top: 3rem;
 }
+
 .cancel{
   background-color: #14337c;
   color: white;
@@ -179,7 +180,6 @@ margin-bottom: 2rem;
   font-family: 'poppins', sans-serif;
   font-weight: 500;
 }
-
 .Close {
   color: #aaa;
   float: right;
@@ -294,7 +294,6 @@ margin-bottom: 2rem;
     width: 90vw;
     margin-top: 1rem;
     padding: .6rem;
-    cursor: pointer;
 }
 .interContainer{
   display: flex;
@@ -323,7 +322,9 @@ margin-bottom: 2rem;
   margin-right: 2rem;
 
 }
-
+.span{
+  margin-top: 1.5rem;
+ }
 
  .promo{
   font-family: poppins, sans-serif;
@@ -339,13 +340,19 @@ margin-bottom: 2rem;
   margin-top: 1rem;
   font-family: poppins, sans-serif;
  }
-
  .CircularIndeterminate{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+
+.ModalContent__p{
+  font-family: 'poppins', sans-serif;
+  font-weight: 500;
+}
+
 @media screen and (min-width: 700px) {
   .linha {
     width: 50vw;
@@ -356,7 +363,9 @@ margin-bottom: 2rem;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra para a linha */
   }
 
-
+  /* div h3:nth-last-of-type(3) {
+    margin-left: auto;
+  } */
 
   .ProductsContainer {
     display: flex;
@@ -387,6 +396,12 @@ margin-bottom: 2rem;
   }
 
 
+/* 
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  } */
 
   .Modal {
     display: block;
@@ -480,7 +495,6 @@ margin-bottom: 2rem;
     background-color: red;
     
   }
-
 }
 @media screen and (min-width: 1643px)  {
   .totalQuantityContainer{
