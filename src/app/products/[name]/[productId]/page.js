@@ -20,7 +20,7 @@ const getProductData = async (name, productId, token, apiUrl) => {
 export async function generateMetadata({ params }) {
   const { productId, name } = params;
   const token = 'your_auth_token'; // Substitua pelo seu token
-  const apiUrl = 'https://serveradmin-whhj.onrender.com';
+  const apiUrl = 'https://revendedor-api.onrender.com';
 
   let productData = null;
 
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
 const ProductPage = async ({ params }) => {
   const { productId, name } = params;
   const token = 'your_auth_token'; // Substitua pelo seu token
-  const apiUrl = 'https://serveradmin-whhj.onrender.com';
+  const apiUrl = 'https://revendedor-api.onrender.com';
 
   let productData = null;
 

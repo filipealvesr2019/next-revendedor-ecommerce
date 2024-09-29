@@ -30,7 +30,7 @@ const SearchResults = ({ params }) => {
   const fetchSearchResults = async () => {
     try {
       const response = await fetch(
-        `https://serveradmin-whhj.onrender.com/api/search/product?searchQuery=${query}`
+        `https://revendedor-api.onrender.com/api/search/product?searchQuery=${query}`
       );
       const data = await response.json();
       setSearchResults(data.products);
