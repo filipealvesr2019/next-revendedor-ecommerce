@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
     console.error("Erro ao obter detalhes do produto:", error);
   }
 
-  const canonicalUrl = `http://localhost:5012/categories/${category}`; // Substitua pela URL canônica correta
+  const canonicalUrl = `https://revendedor.mediewal.com.br/categories/${category}`; // Substitua pela URL canônica correta
   // Define metadados dinâmicos com base na categoria
   switch (category) {
     case "moda-dri-fit":

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
     console.error('Erro ao obter detalhes do produto:', error);
   }
  
-    const canonicalUrl = `http://localhost:5012/products/${name}/${productId}`; // Substitua pela URL canônica correta
+    const canonicalUrl = `https://revendedor.mediewal.com.br/products/${name}/${productId}`; // Substitua pela URL canônica correta
 
   return {
     title: productData ? productData.name : "Produto não encontrado",
