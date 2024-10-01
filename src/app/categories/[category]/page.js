@@ -99,7 +99,7 @@ export async function generateMetadata({ params }) {
 const CategoriesPage = async ({ params }) => {
   const { category } = params;
   const token = "your_auth_token"; // Substitua pelo seu token
-  const apiUrl = "https://serveradmin-whhj.onrender.com";
+  const apiUrl = "https://revendedor-api.onrender.com";
 
   let productData = null;
 
